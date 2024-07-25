@@ -41,13 +41,18 @@ class CacheControlMixin:
     def get_cachecontrol_options(cls):
         """Compile a dictionary of selected cache options"""
         opts = (
-            'public', 'private', 'no_cache', 'no_transform',
-            'must_revalidate', 'proxy_revalidate', 'max_age',
-            's_maxage'
+            "public",
+            "private",
+            "no_cache",
+            "no_transform",
+            "must_revalidate",
+            "proxy_revalidate",
+            "max_age",
+            "s_maxage",
         )
         options = {}
         for opt in opts:
-            value = getattr(cls, f'cachecontrol_{opt}', None)
+            value = getattr(cls, f"cachecontrol_{opt}", None)
             if value is not None:
                 options[opt] = value
         return options
@@ -77,6 +82,7 @@ class NeverCacheMixin:
     class MyNeverCachedView(NeverCacheMixin, TemplateView):
         template_name = 'my_template.html'
     """
+
     @classmethod
     def as_view(cls, *args, **kwargs):
         """

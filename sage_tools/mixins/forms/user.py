@@ -21,6 +21,7 @@ class UserFormKwargsMixin:
         kwargs.update({"user": self.request.user})
         return kwargs
 
+
 class _MessageAPIWrapper:
     """
     Wrapper for the django.contrib.messages.api module.
@@ -103,9 +104,7 @@ class FormValidMessageMixin(MessageMixin):
         Set the "form valid" message for standard form validation
         """
         response = super(FormValidMessageMixin, self).form_valid(form)
-        self.messages.success(
-            self.get_form_valid_message(), fail_silently=True
-        )
+        self.messages.success(self.get_form_valid_message(), fail_silently=True)
         return response
 
     def delete(self, *args, **kwargs):
@@ -113,9 +112,7 @@ class FormValidMessageMixin(MessageMixin):
         Set the "form valid" message for delete form validation
         """
         response = super(FormValidMessageMixin, self).delete(*args, **kwargs)
-        self.messages.success(
-            self.get_form_valid_message(), fail_silently=True
-        )
+        self.messages.success(self.get_form_valid_message(), fail_silently=True)
         return response
 
 
@@ -150,9 +147,7 @@ class FormInvalidMessageMixin(MessageMixin):
         Set the "form invalid" message for standard form validation
         """
         response = super(FormInvalidMessageMixin, self).form_invalid(form)
-        self.messages.error(
-            self.get_form_invalid_message(), fail_silently=True
-        )
+        self.messages.error(self.get_form_invalid_message(), fail_silently=True)
         return response
 
 

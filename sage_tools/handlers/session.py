@@ -1,6 +1,6 @@
 import logging
 from datetime import timedelta
-from typing import Optional, Any
+from typing import Any, Optional
 
 from django.conf import settings
 from django.http import HttpRequest
@@ -25,6 +25,7 @@ class SessionHandler:
     offering an additional layer of security. Each session variable can have its own lifespan,
     after which it is considered expired and automatically removed.
     """
+
     def __init__(self, request: HttpRequest) -> None:
         """
         Initializes the SessionHandler with the current request and uses the secret key from Django settings for encryption.
@@ -32,7 +33,9 @@ class SessionHandler:
         self.request = request
         self.fernet = FernetEncryptor(settings.FERNET_SECRET_KEY)
 
-    def set(self, key: str, value: str, lifespan=timedelta(minutes=10), encrypt=True) -> None:
+    def set(
+        self, key: str, value: str, lifespan=timedelta(minutes=10), encrypt=True
+    ) -> None:
         """
         Encrypts and sets a session variable with a specified lifespan.
         """
@@ -42,11 +45,13 @@ class SessionHandler:
             raise ValueError("Lifespan must be a positive timedelta object")
 
         try:
-            encrypted_value = self.fernet.encrypt(value.encode('utf-8')) if encrypt else value
+            encrypted_value = (
+                self.fernet.encrypt(value.encode("utf-8")) if encrypt else value
+            )
             self.request.session[key] = {
-                'value': encrypted_value,
-                'created_at': timezone.now().timestamp(),
-                'lifespan': lifespan.total_seconds()
+                "value": encrypted_value,
+                "created_at": timezone.now().timestamp(),
+                "lifespan": lifespan.total_seconds(),
             }
         except Exception as e:
             logger.error(f"Error encrypting session data for key {key}: {str(e)}")
@@ -57,14 +62,20 @@ class SessionHandler:
         """
         session_info = self.request.session.get(key)
         if session_info and self._is_valid_session_data(session_info):
-            created_at = session_info.get('created_at')
-            expiry = session_info.get('lifespan', 0)
+            created_at = session_info.get("created_at")
+            expiry = session_info.get("lifespan", 0)
             if timezone.now().timestamp() - created_at < expiry:
-                encrypted_value = session_info.get('value')
+                encrypted_value = session_info.get("value")
                 try:
-                    return self.fernet.decrypt(encrypted_value) if decrypt else encrypted_value
+                    return (
+                        self.fernet.decrypt(encrypted_value)
+                        if decrypt
+                        else encrypted_value
+                    )
                 except InvalidToken:
-                    logger.error(f"Invalid token for session key {key}. Possible data tampering.")
+                    logger.error(
+                        f"Invalid token for session key {key}. Possible data tampering."
+                    )
             else:
                 self.delete(key)
         return None
@@ -81,8 +92,8 @@ class SessionHandler:
         """
         session_info = self.request.session.get(key)
         if session_info and self._is_valid_session_data(session_info):
-            created_at = session_info.get('created_at')
-            lifespan = session_info.get('lifespan', 0)
+            created_at = session_info.get("created_at")
+            lifespan = session_info.get("lifespan", 0)
             return timezone.now().timestamp() - created_at >= lifespan
         return True
 
@@ -93,8 +104,8 @@ class SessionHandler:
         if not self.is_expired(key):
             session_info = self.request.session.get(key)
             if session_info:
-                session_info['created_at'] = timezone.now().timestamp()
-                session_info['lifespan'] = lifespan.total_seconds()
+                session_info["created_at"] = timezone.now().timestamp()
+                session_info["lifespan"] = lifespan.total_seconds()
                 self.request.session[key] = session_info
                 return True
         return False
@@ -109,7 +120,7 @@ class SessionHandler:
         """
         Validates the structure of the session data.
         """
-        return all(k in session_data for k in ['value', 'created_at', 'lifespan'])
+        return all(k in session_data for k in ["value", "created_at", "lifespan"])
 
     def flush(self) -> None:
         """

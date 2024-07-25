@@ -1,9 +1,9 @@
-from typing import Optional, Type, Any
+from typing import Any, Optional, Type
 
 from django.contrib import admin
 from django.db.models import Model
-from django.utils.translation import gettext_lazy as _
 from django.http import HttpRequest, HttpResponseRedirect
+from django.utils.translation import gettext_lazy as _
 
 
 class LimitOneInstanceAdminMixin(admin.ModelAdmin):
@@ -90,10 +90,14 @@ class ReadOnlyAdmin(admin.ModelAdmin):
         """Disable the add permission in the admin interface."""
         return False
 
-    def has_change_permission(self, request: HttpRequest, obj: Any | None = ...) -> bool:
+    def has_change_permission(
+        self, request: HttpRequest, obj: Any | None = ...
+    ) -> bool:
         """Disable the change permission in the admin interface."""
         return False
 
-    def has_delete_permission(self, request: HttpRequest, obj: Any | None = ...) -> bool:
+    def has_delete_permission(
+        self, request: HttpRequest, obj: Any | None = ...
+    ) -> bool:
         """Disable the delete permission in the admin interface."""
         return False

@@ -1,4 +1,5 @@
 from typing import Any
+
 from django.conf import settings
 from django.utils.text import slugify
 
@@ -15,7 +16,9 @@ class SlugService:
 
     def __init__(self, instance: Any) -> None:
         self.instance = instance
-        self.auto_slugify_enabled: bool = getattr(settings, "AUTO_SLUGIFY_ENABLED", True)
+        self.auto_slugify_enabled: bool = getattr(
+            settings, "AUTO_SLUGIFY_ENABLED", True
+        )
 
     def _create_slug(self) -> str:
         """Generate a slug from the instance title if auto-slugify is enabled, otherwise use the existing slug."""
@@ -25,7 +28,12 @@ class SlugService:
 
     def _is_slug_unique(self, slug: str) -> bool:
         """Check if a given slug is unique among the instances."""
-        return not type(self.instance).objects.filter(slug=slug).exclude(pk=self.instance.pk).exists()
+        return (
+            not type(self.instance)
+            .objects.filter(slug=slug)
+            .exclude(pk=self.instance.pk)
+            .exists()
+        )
 
     def _generate_unique_slug(self, base_slug: str) -> str:
         """Generate a unique slug by appending a counter if needed."""

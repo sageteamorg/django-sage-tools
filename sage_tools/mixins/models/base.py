@@ -162,7 +162,6 @@ class TitleSlugMixin(BaseTitleSlugMixin):
         return self.title
 
 
-
 class BaseTitleSlugDescriptionMixin(BaseTitleSlugMixin):
     """
     A mixin class that extends TitleSlugMixin by adding a description field.

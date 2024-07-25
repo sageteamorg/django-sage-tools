@@ -15,7 +15,7 @@ class HeaderMixin:
 
     def dispatch(self, request, *args, **kwargs):
         """
-        Overrides the dispatch method to add the specified headers to the response 
+        Overrides the dispatch method to add the specified headers to the response
         before returning it.
         """
         response = super().dispatch(request, *args, **kwargs)

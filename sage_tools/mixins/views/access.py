@@ -2,19 +2,19 @@
 This module is derived from the django-braces package.
 """
 
-import inspect
 import datetime
+import inspect
 import urllib.parse
 
 from django.conf import settings
 from django.contrib.auth import REDIRECT_FIELD_NAME
-from django.contrib.auth.views import redirect_to_login, logout_then_login
+from django.contrib.auth.views import logout_then_login, redirect_to_login
 from django.core.exceptions import ImproperlyConfigured, PermissionDenied
 from django.http import (
-    HttpResponseRedirect,
-    HttpResponsePermanentRedirect,
     Http404,
     HttpResponse,
+    HttpResponsePermanentRedirect,
+    HttpResponseRedirect,
     StreamingHttpResponse,
 )
 from django.shortcuts import resolve_url
@@ -304,7 +304,7 @@ class MultiplePermissionsRequiredMixin(PermissionRequiredMixin):
         """
         if self.permissions is None or not isinstance(self.permissions, dict):
             raise ImproperlyConfigured(
-                f'{self._class_name} requires the `permissions` attribute'
+                f"{self._class_name} requires the `permissions` attribute"
                 "to be set as a dict."
             )
 
@@ -316,7 +316,7 @@ class MultiplePermissionsRequiredMixin(PermissionRequiredMixin):
         """
         if perms_all is None and perms_any is None:
             raise ImproperlyConfigured(
-                f'{self._class_name} requires the `permissions` attribute to '
+                f"{self._class_name} requires the `permissions` attribute to "
                 f"be set to a dict and the `any` or `all` key to be set."
             )
 
@@ -337,13 +337,15 @@ class GroupRequiredMixin(AccessMixin):
 
     def get_group_required(self):
         """Get which group's membership is required"""
-        if any([
-            self.group_required is None,
-            not isinstance(self.group_required, (list, tuple, str))
-        ]):
+        if any(
+            [
+                self.group_required is None,
+                not isinstance(self.group_required, (list, tuple, str)),
+            ]
+        ):
 
             raise ImproperlyConfigured(
-                f'{self._class_name} requires the `group_required` attribute '
+                f"{self._class_name} requires the `group_required` attribute "
                 "to be set and be a string, list, or tuple."
             )
         if not isinstance(self.group_required, (list, tuple)):
@@ -448,18 +450,14 @@ class SSLRequiredMixin:
             if self.raise_exception:
                 raise Http404
 
-            return HttpResponsePermanentRedirect(
-                self._build_https_url(request)
-            )
+            return HttpResponsePermanentRedirect(self._build_https_url(request))
 
         return super(SSLRequiredMixin, self).dispatch(request, *args, **kwargs)
 
     def _build_https_url(self, request):
         """Get the full url, replace http with https"""
         url = request.build_absolute_uri(request.get_full_path())
-        return urllib.parse.urlunsplit(
-            ("https",)+urllib.parse.urlsplit(url)[1:]
-        )
+        return urllib.parse.urlunsplit(("https",) + urllib.parse.urlsplit(url)[1:])
 
 
 class RecentLoginRequiredMixin(LoginRequiredMixin):
