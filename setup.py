@@ -4,7 +4,7 @@ with open("README.md", encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
-    name="python_sage_imap",
+    name="django_sage_tools",
     version="0.1.0",
     author="Sepehr Akbarzadeh",
     author_email="info@sageteam.org",
