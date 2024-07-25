@@ -10,6 +10,8 @@ readme = "README.md"
 python = "^3.12"
 django = "^5.0.7"
 setuptools = "^71.1.0"
+wheel = "^0.43.0"
+twine = "^5.1.1"
 
 
 [tool.poetry.group.dev.dependencies]
