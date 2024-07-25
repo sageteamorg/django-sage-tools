@@ -39,4 +39,5 @@ def get_app_list(self, request, app_label=None):
     app_list = sorted(app_dict.values(), key=lambda x: x["name"].lower())
     return app_list
 
+
 admin.AdminSite.get_app_list = get_app_list

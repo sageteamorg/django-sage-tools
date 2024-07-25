@@ -4,13 +4,8 @@ units of measurement.
 It includes conversions between bytes and megabytes, days and seconds,
 and seconds and minutes.
 """
-from sage_tools.helpers.typings import (
-    Byte,
-    Day,
-    MegaByte,
-    Minute,
-    Second
-)
+
+from sage_tools.helpers.typings import Byte, Day, MegaByte, Minute, Second
 
 
 class UnitConvertor:

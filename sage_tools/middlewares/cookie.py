@@ -18,7 +18,6 @@ from django.utils import translation
 
 from sage_tools.utils.locale import MultilingualService
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -26,9 +25,9 @@ class CookieLocaleMiddleware(DjangoLocaleMiddleware):
     """
     Extends Django's LocaleMiddleware to manage language settings more dynamically.
 
-    The middleware determines the user's preferred language by examining the URL and cookies, 
-    then aligns the request with the determined preference. It's designed to work seamlessly 
-    with multilingual sites, redirecting users to the appropriate language version of the site 
+    The middleware determines the user's preferred language by examining the URL and cookies,
+    then aligns the request with the determined preference. It's designed to work seamlessly
+    with multilingual sites, redirecting users to the appropriate language version of the site
     based on their preferences and the available languages.
     """
 

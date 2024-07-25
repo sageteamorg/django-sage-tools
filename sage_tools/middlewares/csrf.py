@@ -7,8 +7,8 @@ The primary class provided is SecureCsrfMiddleware, which can be
 used as a drop-in replacement for Django's default CSRF middleware.
 """
 
-from django.http import FileResponse
 from django.conf import settings
+from django.http import FileResponse
 from django.middleware.csrf import CsrfViewMiddleware as DjangoCsrfViewMiddleware
 from django.utils.safestring import mark_safe
 

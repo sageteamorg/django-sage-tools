@@ -15,7 +15,6 @@ Usage:
 
 from typing import NewType
 
-
 MegaByte = NewType("MegaByte", int)
 Byte = NewType("Byte", int)
 Second = NewType("Second", int)
