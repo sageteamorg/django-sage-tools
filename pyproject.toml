@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "django-sage-tools"
+version = "0.1.0"
+description = ""
+authors = ["Sepehr Akbarzadeh <sepehr@sageteam.org>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.7"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+isort = "^5.13.2"
+tox = "^4.16.0"
+coverage = "^7.6.0"
+pre-commit = "^3.7.1"
+sphinx = "^7.4.7"
+pylint = "^3.2.6"
+sphinx-rtd-theme = "^2.0.0"
+commitizen = "^3.28.0"
+docformatter = "^1.7.5"
+codecov = "^2.1.13"
+types-setuptools = "^71.1.0.20240724"
+django-stubs = "^5.0.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
