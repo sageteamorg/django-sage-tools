@@ -41,6 +41,28 @@ class TimeStampMixin(models.Model):
         abstract = True
 
 
+class UUIDBaseModel(models.Model):
+    """
+    Abstract Django Model that contains:
+        uuid
+    """
+
+    uuid = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        help_text=_(
+            "A universally unique identifier (UUID) automatically"
+            " generated for this content. This identifier is used"
+            " as the unique primary key and should not be modified manually."
+        ),
+    )
+
+    class Meta:
+        abstract = True
+
+
 class StockUnitMixin(models.Model):
     """
     Abstract Django Model that contains:
