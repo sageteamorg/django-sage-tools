@@ -222,7 +222,7 @@ class TitleSlugDescriptionMixin(TitleSlugMixin):
     """
 
     description = models.TextField(
-        _("Description"),
+        verbose_name=_("Description"),
         help_text=_(
             "Enter a detailed description of the item. This can include its purpose, "
             "characteristics, and any other relevant information."
