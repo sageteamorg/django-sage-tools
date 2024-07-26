@@ -15,14 +15,18 @@ from django.utils.translation import gettext_lazy as _
 
 try:
     from PIL import Image
-except ImportError as e:
-    raise ImportError("Install `pillow` package. Run `pip install pillow`.")
+except ImportError:
+    raise ImportError(
+        "The `Pillow` package is required but not installed. "
+        "Please install it by running: pip install pillow"
+    )
 
 try:
     from sorl.thumbnail import get_thumbnail
-except ImportError as e:
+except ImportError:
     raise ImportError(
-        "Install `sorl-thumbnail` package. Run `pip install sorl-thumbnail`."
+        "The `sorl-thumbnail` package is required but not installed. "
+        "Please install it by running: pip install sorl-thumbnail"
     )
 
 
