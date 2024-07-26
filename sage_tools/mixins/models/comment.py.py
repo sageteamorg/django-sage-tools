@@ -30,7 +30,7 @@ class CommentBaseModel(models.Model):
     )
 
     reply = models.ForeignKey(
-        "self",
+        to="self",
         on_delete=models.CASCADE,
         null=True,
         blank=True,
