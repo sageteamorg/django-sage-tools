@@ -101,7 +101,7 @@ class BaseTitleSlugMixin(models.Model):
         max_length=255,
         unique=True,
         help_text=_("Enter a unique title."),
-        db_comment=_("Stores the unique title of the instance."),
+        db_comment="Stores the unique title of the instance.",
     )
 
     slug = models.SlugField(
@@ -111,7 +111,7 @@ class BaseTitleSlugMixin(models.Model):
         editable=True,
         allow_unicode=True,
         help_text=_("URL-friendly slug from the title."),
-        db_comment=_("Stores the URL-friendly slug derived from the title."),
+        db_comment="Stores the URL-friendly slug derived from the title.",
     )
 
     @admin.display(description=_("title"), ordering=("-title"))
@@ -200,7 +200,7 @@ class BaseTitleSlugDescriptionMixin(BaseTitleSlugMixin):
             "Enter a detailed description of the item. This can include its purpose, "
             "characteristics, and any other relevant information."
         ),
-        db_comment=_("Stores a detailed description of the instance."),
+        db_comment="Stores a detailed description of the instance.",
     )
 
     class Meta:
@@ -227,7 +227,7 @@ class TitleSlugDescriptionMixin(TitleSlugMixin):
             "Enter a detailed description of the item. This can include its purpose, "
             "characteristics, and any other relevant information."
         ),
-        db_comment=_("Stores a detailed description of the instance."),
+        db_comment="Stores a detailed description of the instance.",
     )
 
     class Meta:

@@ -20,13 +20,13 @@ class CommentBaseModel(models.Model):
             "Select the user who submitted this comment or question. If the user is deleted, the "
             "comment will remain but the user reference will be removed."
         ),
-        db_comment=_("User who submitted the comment or question."),
+        db_comment="User who submitted the comment or question.",
     )
 
     message = models.TextField(
         verbose_name=_("Comment Message"),
         help_text=_("Enter the comment, feedback, or question provided by the user."),
-        db_comment=_("Text comment/question submitted by the user."),
+        db_comment="Text comment/question submitted by the user.",
     )
 
     reply = models.ForeignKey(
@@ -39,7 +39,7 @@ class CommentBaseModel(models.Model):
         help_text=_(
             "The parent comment to which this is a reply. Leave this blank for top-level comments."
         ),
-        db_comment=_("Parent comment this is a reply to."),
+        db_comment="Parent comment this is a reply to.",
     )
 
     is_active = models.BooleanField(
@@ -48,7 +48,7 @@ class CommentBaseModel(models.Model):
         help_text=_(
             "Indicates whether the comment is active and visible on the site. Use this to hide comments that violate site policies."
         ),
-        db_comment=_("Flag to indicate if the comment is active and should be displayed."),
+        db_comment="Flag to indicate if the comment is active and should be displayed.",
     )
 
     class Meta:
