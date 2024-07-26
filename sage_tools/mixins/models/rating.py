@@ -32,7 +32,7 @@ class RatingMixin(models.Model):
                 message=_("Rating must be between 1 and 5 in half-point increments.")
             ),
         ],
-        db_comment="User's rating from 1 to 5.",
+        db_comment=_("User's rating from 1 to 5."),
     )
 
     class Meta:
