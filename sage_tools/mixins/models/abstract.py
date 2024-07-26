@@ -42,6 +42,7 @@ class PictureOperationAbstract(models.Model):
         null=True,
         blank=True,
         help_text=_("Write about picture for SEO"),
+        db_comment=_("Alternative text for the picture, used for SEO purposes."),
     )
 
     width_field = models.PositiveSmallIntegerField(
@@ -50,6 +51,7 @@ class PictureOperationAbstract(models.Model):
         blank=True,
         editable=False,
         help_text=_("size of picture's Width"),
+        db_comment=_("The width of the picture in pixels."),
     )
 
     height_field = models.PositiveSmallIntegerField(
@@ -58,6 +60,7 @@ class PictureOperationAbstract(models.Model):
         blank=True,
         editable=False,
         help_text=_("size of picture's Height"),
+        db_comment=_("The height of the picture in pixels."),
     )
 
     class Meta:
