@@ -36,28 +36,31 @@ class PictureOperationAbstract(models.Model):
     picture: str
 
     alternate_text = models.CharField(
-        _("Picture Alternate Text"),
+        verbose_name=_("Picture Alternate Text"),
         max_length=110,
         validators=[MaxLengthValidator(150), MinLengthValidator(3)],
         null=True,
         blank=True,
         help_text=_("Write about picture for SEO"),
+        db_comment=_("Alternative text for the picture, used for SEO purposes."),
     )
 
     width_field = models.PositiveSmallIntegerField(
-        _("Picture Width"),
+        verbose_name=_("Picture Width"),
         null=True,
         blank=True,
         editable=False,
         help_text=_("size of picture's Width"),
+        db_comment=_("The width of the picture in pixels."),
     )
 
     height_field = models.PositiveSmallIntegerField(
-        _("Picture Height"),
+        verbose_name=_("Picture Height"),
         null=True,
         blank=True,
         editable=False,
         help_text=_("size of picture's Height"),
+        db_comment=_("The height of the picture in pixels."),
     )
 
     class Meta:
