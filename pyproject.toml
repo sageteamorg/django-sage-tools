@@ -1,15 +1,19 @@
 [tool.poetry]
 name = "django-sage-tools"
-version = "0.1.0"
+version = "0.1.2"
 description = "Reusable, generic mixins for Django"
 authors = ["Sepehr Akbarzadeh <sepehr@sageteam.org>"]
 license = "MIT"
 readme = "README.md"
 
+packages = [
+    { include = "sage_tools" }
+]
+
 [tool.poetry.dependencies]
 python = "^3.12"
 django = "^5.0.7"
-setuptools = "^71.1.0"
+setuptools = "^72.0.0"
 wheel = "^0.43.0"
 twine = "^5.1.1"
 
