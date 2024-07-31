@@ -5,7 +5,7 @@ with open("README.md", encoding="utf-8") as f:
 
 setup(
     name="django_sage_tools",
-    version="0.1.2",
+    version="0.1.3",
     author="Sepehr Akbarzadeh",
     author_email="info@sageteam.org",
     description="Reusable, generic mixins for Django",
