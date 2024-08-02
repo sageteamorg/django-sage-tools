@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-sage-tools"
-version = "0.1.4"
+version = "0.1.5"
 description = "Reusable, generic mixins for Django"
 authors = ["Sepehr Akbarzadeh <sepehr@sageteam.org>"]
 license = "MIT"
