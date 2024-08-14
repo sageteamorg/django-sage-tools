@@ -13,6 +13,8 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.12"
 django = "^5.0.7"
+mimesis = "^17.0.0"
+pillow = "^10.4.0"
 
 
 [tool.poetry.group.dev.dependencies]
