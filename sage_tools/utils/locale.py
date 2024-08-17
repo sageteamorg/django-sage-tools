@@ -1,5 +1,4 @@
-"""
-A module for handling multilingual URL prefixes in Django applications.
+"""A module for handling multilingual URL prefixes in Django applications.
 
 This module provides the `MultilingualService` class, which offers methods
 to add or remove language prefixes in URLs based on the application's language
@@ -26,8 +25,7 @@ from django.conf import settings
 
 
 class MultilingualService:
-    """
-    A service class for managing language prefixes in URLs.
+    """A service class for managing language prefixes in URLs.
 
     This class provides class methods to add or remove language prefixes from URLs,
     assisting in the creation of language-specific URLs in a multilingual Django application.
@@ -51,12 +49,13 @@ class MultilingualService:
     '/es/example/'
     >>> MultilingualService.remove_language_prefix('/de/example/')
     '/example/'
+
     """
 
     @classmethod
     def get_language_prefix(cls, url, language):
-        """
-        Process the given URL to add or remove the language prefix based on the specified language.
+        """Process the given URL to add or remove the language prefix based on
+        the specified language.
 
         This method first removes any existing language prefix from the URL and then,
         if the specified language is not the default language, adds the appropriate language prefix.
@@ -81,8 +80,7 @@ class MultilingualService:
 
     @classmethod
     def add_language_prefix(cls, url, language):
-        """
-        Add the specified language prefix to the given URL.
+        """Add the specified language prefix to the given URL.
 
         This method formats the URL by prefixing it with the specified language code.
 
@@ -103,8 +101,7 @@ class MultilingualService:
 
     @classmethod
     def remove_language_prefix(cls, url):
-        """
-        Remove any existing language prefix from the given URL.
+        """Remove any existing language prefix from the given URL.
 
         This method iterates through the available languages and removes the corresponding prefix
         from the URL, if present. It is designed to strip language codes from URLs in a

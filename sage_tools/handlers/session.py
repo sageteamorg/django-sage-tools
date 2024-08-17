@@ -17,28 +17,28 @@ logger = logging.getLogger(__name__)
 
 
 class SessionHandler:
-    """
-    Manages session variables with encryption and a custom expiry time for enhanced security and privacy.
+    """Manages session variables with encryption and a custom expiry time for
+    enhanced security and privacy.
 
-    This class provides methods to set, get, and delete session variables securely. It uses
-    Fernet symmetric encryption to ensure that session data is encrypted before being stored,
-    offering an additional layer of security. Each session variable can have its own lifespan,
-    after which it is considered expired and automatically removed.
+    This class provides methods to set, get, and delete session
+    variables securely. It uses Fernet symmetric encryption to ensure
+    that session data is encrypted before being stored, offering an
+    additional layer of security. Each session variable can have its own
+    lifespan, after which it is considered expired and automatically
+    removed.
+
     """
 
     def __init__(self, request: HttpRequest) -> None:
-        """
-        Initializes the SessionHandler with the current request and uses the secret key from Django settings for encryption.
-        """
+        """Initializes the SessionHandler with the current request and uses the
+        secret key from Django settings for encryption."""
         self.request = request
         self.fernet = FernetEncryptor(settings.FERNET_SECRET_KEY)
 
     def set(
         self, key: str, value: str, lifespan=timedelta(minutes=10), encrypt=True
     ) -> None:
-        """
-        Encrypts and sets a session variable with a specified lifespan.
-        """
+        """Encrypts and sets a session variable with a specified lifespan."""
         if not isinstance(key, str) or not key:
             raise ValueError("Key must be a non-empty string")
         if not isinstance(lifespan, timedelta) or lifespan.total_seconds() <= 0:
@@ -57,9 +57,8 @@ class SessionHandler:
             logger.error(f"Error encrypting session data for key {key}: {str(e)}")
 
     def get(self, key: str, decrypt=True) -> Optional[str]:
-        """
-        Retrieves, decrypts, and returns the value of a session variable if it has not expired.
-        """
+        """Retrieves, decrypts, and returns the value of a session variable if
+        it has not expired."""
         session_info = self.request.session.get(key)
         if session_info and self._is_valid_session_data(session_info):
             created_at = session_info.get("created_at")
@@ -81,15 +80,11 @@ class SessionHandler:
         return None
 
     def delete(self, key: str) -> Optional[Any]:
-        """
-        Deletes a session variable, if it exists.
-        """
+        """Deletes a session variable, if it exists."""
         return self.request.session.pop(key, None)
 
     def is_expired(self, key: str) -> bool:
-        """
-        Checks if a session variable has expired.
-        """
+        """Checks if a session variable has expired."""
         session_info = self.request.session.get(key)
         if session_info and self._is_valid_session_data(session_info):
             created_at = session_info.get("created_at")
@@ -98,9 +93,8 @@ class SessionHandler:
         return True
 
     def refresh(self, key: str, lifespan=timedelta(minutes=10)) -> bool:
-        """
-        Refreshes the lifespan of an existing session variable, if it exists and has not expired.
-        """
+        """Refreshes the lifespan of an existing session variable, if it exists
+        and has not expired."""
         if not self.is_expired(key):
             session_info = self.request.session.get(key)
             if session_info:
@@ -111,25 +105,18 @@ class SessionHandler:
         return False
 
     def exists(self, key: str) -> bool:
-        """
-        Checks if a session variable exists and has not expired.
-        """
+        """Checks if a session variable exists and has not expired."""
         return key in self.request.session and not self.is_expired(key)
 
     def _is_valid_session_data(self, session_data: dict[str, Any]) -> bool:
-        """
-        Validates the structure of the session data.
-        """
+        """Validates the structure of the session data."""
         return all(k in session_data for k in ["value", "created_at", "lifespan"])
 
     def flush(self) -> None:
-        """
-        Clears the session data and regenerates a new session key.
-        """
+        """Clears the session data and regenerates a new session key."""
         self.request.session.flush()
 
     def cycle_key(self) -> None:
-        """
-        Preserves the session data but changes the session key to prevent session fixation.
-        """
+        """Preserves the session data but changes the session key to prevent
+        session fixation."""
         self.request.session.cycle_key()

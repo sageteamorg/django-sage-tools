@@ -5,13 +5,14 @@ from django.utils.text import slugify
 
 
 class SlugService:
-    """
-    A service class for handling slug creation and uniqueness for a given model instance.
+    """A service class for handling slug creation and uniqueness for a given
+    model instance.
 
     The `SlugService` class provides methods to create slugs from the instance title,
     check if a slug has been modified, and ensure the uniqueness of slugs within the model.
     It uses the `AUTO_SLUGIFY_ENABLED` setting to determine whether to automatically generate
     slugs from the instance title.
+
     """
 
     def __init__(self, instance: Any) -> None:
@@ -21,7 +22,8 @@ class SlugService:
         )
 
     def _create_slug(self) -> str:
-        """Generate a slug from the instance title if auto-slugify is enabled, otherwise use the existing slug."""
+        """Generate a slug from the instance title if auto-slugify is enabled,
+        otherwise use the existing slug."""
         if self.auto_slugify_enabled:
             return slugify(self.instance.title, allow_unicode=True)
         return self.instance.slug

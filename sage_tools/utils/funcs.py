@@ -1,6 +1,4 @@
-"""
-Useful Functions
-"""
+"""Useful Functions."""
 
 import base64
 import os
@@ -8,8 +6,7 @@ import secrets
 
 
 def create_directories(base_dir: str, directories: list[tuple[str]]):
-    """
-    Creates a series of directories based on the input parameters.
+    """Creates a series of directories based on the input parameters.
 
     Args:
     - base_dir (str): The base directory in which the subdirectories will be created.
@@ -27,6 +24,7 @@ def create_directories(base_dir: str, directories: list[tuple[str]]):
     - /path/to/base/logs
     - /path/to/base/logs/auth
     - /path/to/base/logs/core
+
     """
     for directory in directories:
         path = os.path.join(base_dir, *directory)
@@ -35,14 +33,14 @@ def create_directories(base_dir: str, directories: list[tuple[str]]):
 
 
 def generate_base32_secret(length: int = 20) -> str:
-    """
-    Generate a secure random Base32-encoded secret.
+    """Generate a secure random Base32-encoded secret.
 
     Args:
         length (int): Length of the random bytes. Default is 20 bytes.
 
     Returns:
         str: A Base32-encoded string.
+
     """
     # Generate secure random bytes
     random_bytes = secrets.token_bytes(length)
@@ -55,14 +53,14 @@ def generate_base32_secret(length: int = 20) -> str:
 
 
 def hide_phone_number(phone_number):
-    """
-    Mask the phone number to only show the last four digits.
+    """Mask the phone number to only show the last four digits.
 
     Args:
         phone_number (str): The phone number to be masked.
 
     Returns:
         str: The masked phone number with only the last four digits visible.
+
     """
     if not phone_number:
         return "Phone number not available"
