@@ -1,12 +1,12 @@
-"""
-This module provides middleware support for handling user language
-preferences in a Django web application. 
-It extends Django's built-in locale middleware functionality,
-offering a more nuanced approach to 
-language detection and selection through URL prefixes and cookies.
-The core component, CookieLocaleMiddleware, 
-intercepts web requests to determine the most suitable language
-for the user and adjust the request or response accordingly.
+"""This module provides middleware support for handling user language
+preferences in a Django web application.
+
+It extends Django's built-in locale middleware functionality, offering a
+more nuanced approach to language detection and selection through URL
+prefixes and cookies. The core component, CookieLocaleMiddleware,
+intercepts web requests to determine the most suitable language for the
+user and adjust the request or response accordingly.
+
 """
 
 import logging
@@ -22,19 +22,20 @@ logger = logging.getLogger(__name__)
 
 
 class CookieLocaleMiddleware(DjangoLocaleMiddleware):
-    """
-    Extends Django's LocaleMiddleware to manage language settings more dynamically.
+    """Extends Django's LocaleMiddleware to manage language settings more
+    dynamically.
 
-    The middleware determines the user's preferred language by examining the URL and cookies,
-    then aligns the request with the determined preference. It's designed to work seamlessly
-    with multilingual sites, redirecting users to the appropriate language version of the site
-    based on their preferences and the available languages.
+    The middleware determines the user's preferred language by examining
+    the URL and cookies, then aligns the request with the determined
+    preference. It's designed to work seamlessly with multilingual
+    sites, redirecting users to the appropriate language version of the
+    site based on their preferences and the available languages.
+
     """
 
     def process_request(self, request):
-        """
-        Examines and aligns the request with the user's preferred language based
-        on the URL or cookies.
+        """Examines and aligns the request with the user's preferred language
+        based on the URL or cookies.
 
         This method checks the request path for language prefixes (e.g., '/en/', '/fr/')
         and compares it with the language specified in the user's language cookie.
@@ -52,6 +53,7 @@ class CookieLocaleMiddleware(DjangoLocaleMiddleware):
 
         Returns:
             A redirect response if the language from the URL and cookie differ, otherwise None.
+
         """
 
         # Exclude certain paths from language prefix redirection
@@ -118,8 +120,7 @@ class CookieLocaleMiddleware(DjangoLocaleMiddleware):
         super().process_request(request)
 
     def process_response(self, request, response):
-        """
-        Modifies the response to set the correct language cookie based on
+        """Modifies the response to set the correct language cookie based on
         the user's preferred language.
 
         After the parent class's process_response method runs, this method
@@ -140,6 +141,7 @@ class CookieLocaleMiddleware(DjangoLocaleMiddleware):
 
         Returns:
             The modified HttpResponse object with the updated language cookie if necessary.
+
         """
 
         # First, call the parent class's process_response method

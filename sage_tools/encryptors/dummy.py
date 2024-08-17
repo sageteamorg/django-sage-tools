@@ -2,8 +2,7 @@ from .base import Encryptor
 
 
 class DummyEncryptor(Encryptor):
-    """
-    Dummy encryption class for testing.
+    """Dummy encryption class for testing.
 
     This class implements the Encryptor interface but performs no actual encryption or decryption.
 
@@ -23,6 +22,7 @@ class DummyEncryptor(Encryptor):
     >>> decryptor = encryptor.decrypt(encrypted_data)
     >>> decryptor
     'Hello, World!'
+
     """
 
     def encrypt(self, data: str) -> str:

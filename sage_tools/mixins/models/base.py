@@ -8,9 +8,8 @@ from sage_tools.services.slug import SlugService
 
 
 class TimeStampMixin(models.Model):
-    """
-    A mixin class that adds self-updating `created_at` and `modified_at` fields to a
-    Django model.
+    """A mixin class that adds self-updating `created_at` and `modified_at`
+    fields to a Django model.
 
     This mixin automatically records the creation time of an object and updates the
     modification time
@@ -34,9 +33,7 @@ class TimeStampMixin(models.Model):
     modified_at = models.DateTimeField(_("Modified at"), auto_now=True)
 
     class Meta:
-        """
-        Meta
-        """
+        """Meta."""
 
         abstract = True
 
@@ -86,14 +83,14 @@ class StockUnitMixin(models.Model):
 
 
 class BaseTitleSlugMixin(models.Model):
-    """
-    A mixin class that adds a title and slug field to a model.
+    """A mixin class that adds a title and slug field to a model.
 
     The `TitleSlugMixin` provides a standardized way to include title and slug fields in
     various models. It includes a `title` field, which is a CharField with a maximum
     length of 255 characters and is unique across the model it's used in. The `slug`
     field is a SlugField used for URL-friendly representations of the `title`, also
     unique and limited to 255 characters.
+
     """
 
     title = models.CharField(
@@ -116,8 +113,8 @@ class BaseTitleSlugMixin(models.Model):
 
     @admin.display(description=_("title"), ordering=("-title"))
     def get_title(self) -> str:
-        """
-        Returns the title of the instance, shortened to 30 characters if necessary.
+        """Returns the title of the instance, shortened to 30 characters if
+        necessary.
 
         This method is used to display a shortened version of the title in the Django
         admin interface if the title is longer than 30 characters. It appends ellipses
@@ -126,6 +123,7 @@ class BaseTitleSlugMixin(models.Model):
         Returns:
             str: The full title if it's less than 30 characters, otherwise the first 30
             characters followed by '...'.
+
         """
         TRUNCATE_SIZE = 30
         return (
@@ -133,32 +131,35 @@ class BaseTitleSlugMixin(models.Model):
         )
 
     class Meta:
-        """The Meta class of the TitleSlugMixin has an attribute abstract = True,
-        making it an abstract class and the fields defined in it will be used in the
-        child classes. The Meta class does not have any other attributes.
+        """The Meta class of the TitleSlugMixin has an attribute abstract =
+        True, making it an abstract class and the fields defined in it will be
+        used in the child classes.
+
+        The Meta class does not have any other attributes.
+
         """
 
         abstract = True
 
     def __str__(self) -> str:
-        """
-        String representation of the instance.
+        """String representation of the instance.
 
-        Returns the title of the instance, providing a readable representation of the
-        instance in admin panels or debug outputs.
+        Returns the title of the instance, providing a readable
+        representation of the instance in admin panels or debug outputs.
+
         """
         return self.title
 
 
 class TitleSlugMixin(BaseTitleSlugMixin):
-    """
-    A mixin class that adds a title and slug field to a model.
+    """A mixin class that adds a title and slug field to a model.
 
     The `TitleSlugMixin` provides a standardized way to include title and slug fields in
     various models. It includes a `title` field, which is a CharField with a maximum
     length of 255 characters and is unique across the model it's used in. The `slug`
     field is a SlugField used for URL-friendly representations of the `title`, also
     unique and limited to 255 characters.
+
     """
 
     def save(self, *args, **kwargs):
@@ -167,31 +168,34 @@ class TitleSlugMixin(BaseTitleSlugMixin):
         super().save(*args, **kwargs)
 
     class Meta:
-        """The Meta class of the TitleSlugMixin has an attribute abstract = True,
-        making it an abstract class and the fields defined in it will be used in the
-        child classes. The Meta class does not have any other attributes.
+        """The Meta class of the TitleSlugMixin has an attribute abstract =
+        True, making it an abstract class and the fields defined in it will be
+        used in the child classes.
+
+        The Meta class does not have any other attributes.
+
         """
 
         abstract = True
 
     def __str__(self) -> str:
-        """
-        String representation of the instance.
+        """String representation of the instance.
 
-        Returns the title of the instance, providing a readable representation of the
-        instance in admin panels or debug outputs.
+        Returns the title of the instance, providing a readable
+        representation of the instance in admin panels or debug outputs.
+
         """
         return self.title
 
 
 class BaseTitleSlugDescriptionMixin(BaseTitleSlugMixin):
-    """
-    A mixin class that extends TitleSlugMixin by adding a description field.
+    """A mixin class that extends TitleSlugMixin by adding a description field.
 
     This mixin inherits from TitleSlugMixin and adds a `description` field. It's
     designed to be used in models where an additional descriptive text field is
     necessary along with the title and slug. The `description` field is a TextField,
     suitable for longer text.
+
     """
 
     description = models.TextField(
@@ -204,21 +208,19 @@ class BaseTitleSlugDescriptionMixin(BaseTitleSlugMixin):
     )
 
     class Meta:
-        """
-        Meta class for TitleSlugDescriptionMixin.
-        """
+        """Meta class for TitleSlugDescriptionMixin."""
 
         abstract = True
 
 
 class TitleSlugDescriptionMixin(TitleSlugMixin):
-    """
-    A mixin class that extends TitleSlugMixin by adding a description field.
+    """A mixin class that extends TitleSlugMixin by adding a description field.
 
     This mixin inherits from TitleSlugMixin and adds a `description` field. It's
     designed to be used in models where an additional descriptive text field is
     necessary along with the title and slug. The `description` field is a TextField,
     suitable for longer text.
+
     """
 
     description = models.TextField(
@@ -231,8 +233,6 @@ class TitleSlugDescriptionMixin(TitleSlugMixin):
     )
 
     class Meta:
-        """
-        Meta class for TitleSlugDescriptionMixin.
-        """
+        """Meta class for TitleSlugDescriptionMixin."""
 
         abstract = True

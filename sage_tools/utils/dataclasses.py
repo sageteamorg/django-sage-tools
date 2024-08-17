@@ -6,9 +6,7 @@ from typing import Any, Dict
 
 @dataclass
 class Error:
-    """
-    Shop Error
-    """
+    """Shop Error."""
 
     code: int
     message: str
@@ -16,9 +14,7 @@ class Error:
 
 @dataclass
 class CeleryTaskResult:
-    """
-    A data class representing the result of a Celery task.
-    """
+    """A data class representing the result of a Celery task."""
 
     task_id: str
     issue_title: str
@@ -33,18 +29,14 @@ class CeleryTaskResult:
         self.kwargs = kwargs
 
     def to_json(self) -> str:
-        """
-        Serializes the CeleryTaskResult object to a JSON string.
-        """
+        """Serializes the CeleryTaskResult object to a JSON string."""
         data = asdict(self)
         data["issued_at"] = self.issued_at.strftime("%Y-%m-%d %H:%M:%S")
         return json.dumps(data, indent=4)
 
     @staticmethod
     def from_json(json_str: str) -> "CeleryTaskResult":
-        """
-        Deserializes a JSON string to a CeleryTaskResult object.
-        """
+        """Deserializes a JSON string to a CeleryTaskResult object."""
         data = json.loads(json_str)
         data["issued_at"] = datetime.datetime.strptime(
             data["issued_at"], "%Y-%m-%d %H:%M:%S"
@@ -52,5 +44,6 @@ class CeleryTaskResult:
         return CeleryTaskResult(**data)
 
     def __str__(self):
-        """Returns the JSON string representation of the CeleryTaskResult object."""
+        """Returns the JSON string representation of the CeleryTaskResult
+        object."""
         return self.to_json()

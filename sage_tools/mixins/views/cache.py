@@ -2,8 +2,8 @@ from django.views.decorators.cache import cache_control, never_cache
 
 
 class CacheControlMixin:
-    """
-    Mixin that allows setting Cache-Control options for Django class-based views.
+    """Mixin that allows setting Cache-Control options for Django class-based
+    views.
 
     This mixin enables specifying various Cache-Control headers as class attributes on the view class.
     The available options include:
@@ -26,6 +26,7 @@ class CacheControlMixin:
         template_name = 'my_template.html'
         cachecontrol_public = True
         cachecontrol_max_age = 3600  # 1 hour
+
     """
 
     cachecontrol_public = None
@@ -39,7 +40,7 @@ class CacheControlMixin:
 
     @classmethod
     def get_cachecontrol_options(cls):
-        """Compile a dictionary of selected cache options"""
+        """Compile a dictionary of selected cache options."""
         opts = (
             "public",
             "private",
@@ -59,15 +60,15 @@ class CacheControlMixin:
 
     @classmethod
     def as_view(cls, *args, **kwargs):
-        """Wrap the view with appropriate cache controls"""
+        """Wrap the view with appropriate cache controls."""
         view_func = super().as_view(*args, **kwargs)
         options = cls.get_cachecontrol_options()
         return cache_control(**options)(view_func)
 
 
 class NeverCacheMixin:
-    """
-    Mixin that applies Django's `never_cache` view decorator to prevent HTTP-based caching.
+    """Mixin that applies Django's `never_cache` view decorator to prevent
+    HTTP-based caching.
 
     This mixin ensures that the response from the view it is applied to will never be cached by setting
     the Cache-Control header to 'no-cache'. This is useful for views that deliver highly dynamic content
@@ -81,12 +82,11 @@ class NeverCacheMixin:
     Example Usage:
     class MyNeverCachedView(NeverCacheMixin, TemplateView):
         template_name = 'my_template.html'
+
     """
 
     @classmethod
     def as_view(cls, *args, **kwargs):
-        """
-        Wrap the view with the `never_cache` decorator.
-        """
+        """Wrap the view with the `never_cache` decorator."""
         view_func = super().as_view(*args, **kwargs)
         return never_cache(view_func)

@@ -3,9 +3,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class AddressMixin(models.Model):
-    """
-    Base model for addresses, containing common fields used in all address types.
-    """
+    """Base model for addresses, containing common fields used in all address
+    types."""
 
     title = models.CharField(
         _("Title"),

@@ -1,10 +1,9 @@
-import os
 import io
 import secrets
 import random
 from typing import Any, Set, List, TypeVar, Type
 from datetime import datetime, timezone
-from random import randint
+from django.utils.timezone import make_aware
 
 from django.db.models import Model
 from django.utils.text import slugify
@@ -26,7 +25,6 @@ try:
         Datetime,
         Address,
         Food,
-        Internet,
     )
 except ImportError:
     raise ImportError(  # noqa: B904
@@ -37,7 +35,7 @@ T = TypeVar("T", bound=Model)
 
 
 class BaseDataGenerator:
-    """Generate reusable data"""
+    """Generate reusable data."""
 
     def __init__(self, locale="en"):
         self.person = Person(getattr(Locale, locale.upper()))
@@ -53,9 +51,10 @@ class BaseDataGenerator:
         size: tuple[int, int] = (440, 660),
         pic_format: str = "WEBP",
     ):
-        """
-        Create a gray placeholder image with a number in a specified format.
+        """Create a gray placeholder image with a number in a specified format.
+
         Default format is WEBP.
+
         """
         SUPPORTED_FORMATS = ["JPEG", "PNG", "WEBP"]
         desired_format = pic_format.upper()
@@ -107,41 +106,41 @@ class BaseDataGenerator:
         return img_byte_arr, filename, desired_format
 
     def get_random_secret(self, nbytes=20):
-        """Generate random string"""
+        """Generate random string."""
         return secrets.token_urlsafe(nbytes)
 
     def get_random_words(self, quantity):
         return " ".join(self.text.words(quantity=quantity))
 
     def get_random_color(self):
-        """Generate random code"""
+        """Generate random code."""
         return Text().color()
 
     def get_random_int(self, start: int, end: int) -> int:
         return random.randint(start, end)
 
     def get_random_hex_code(self):
-        """Generate random hex code"""
+        """Generate random hex code."""
         return Text().hex_color()
 
     def get_random_time(self):
-        """Generate random time"""
+        """Generate random time."""
         return Datetime().time()
 
     def get_random_datetime(self, start=None, end=None):
         """Generate a random time between start and end."""
         if start is None:
-            current_year = timezone.now().year
-            start = timezone.make_aware(datetime(current_year, 1, 1))
+            current_year = datetime.now().year
+            start = make_aware(datetime(current_year, 1, 1))
 
         if end is None:
             current_year = timezone.now().year
-            end = timezone.make_aware(datetime(current_year, 12, 31))
+            end = make_aware(datetime(current_year, 12, 31))
 
         start_timestamp = start.timestamp()
         end_timestamp = end.timestamp()
         random_timestamp = random.uniform(start_timestamp, end_timestamp)
-        random_datetime = timezone.make_aware(datetime.fromtimestamp(random_timestamp))
+        random_datetime = make_aware(datetime.fromtimestamp(random_timestamp))
         return random_datetime
 
     def get_random_boolean(self):
@@ -166,7 +165,7 @@ class BaseDataGenerator:
         return random.choice(population)
 
     def get_random_float(self, lower, upper):
-        """Generate a random float with 2 digits after seperator"""
+        """Generate a random float with 2 digits after seperator."""
         return round(random.uniform(lower, upper), 2)
 
     def get_random_currency(self):
@@ -182,7 +181,7 @@ class BaseDataGenerator:
         return Numeric().integer_number(start=start, end=stop)
 
     def get_random_County_code(self):
-        """Generate a random County code"""
+        """Generate a random County code."""
         return Address().country_code()
 
     def get_random_city(self):
@@ -266,9 +265,9 @@ class BaseDataGenerator:
         return Address().province()
 
     def get_unique_phone_number_set(self, min_length: int, digits: int) -> Set[str]:
-        """
-        generates a unique set of phone number which is guaranteed to be bigger
-        than a specified number and it contains given digits or characters given.
+        """Generates a unique set of phone number which is guaranteed to be
+        bigger than a specified number and it contains given digits or
+        characters given.
 
         PARAMS
         ------
@@ -281,6 +280,7 @@ class BaseDataGenerator:
         -------
             a set containing unique phone numbers, its element_length is always
             somewhere between min_length and (min_length + 10)
+
         """
         phone_number_set = set(
             [self.get_random_telephone()[:digits] for _ in range(min_length)]
@@ -304,13 +304,13 @@ class BaseDataGenerator:
         return target_value
 
     def get_voucher_kind(self, static_chance: int = 20):
-        """
-        Get a random kind of voucher.
+        """Get a random kind of voucher.
 
         PARAMS:
         -----
         static_chance: int = 20:
             chance for every created voucher to be static.
+
         """
 
         kinds = ("static_based", "code_based")
@@ -319,24 +319,21 @@ class BaseDataGenerator:
         )[0]
 
     def get_voucher_type(self):
-        """
-        Get a random type for voucher.
-        """
+        """Get a random type for voucher."""
         types = ("fixed_price_based", "percentage_based")
         return random.choice(types)
 
     def get_voucher_status(self):
-        """
-        Get a random status for voucher.
-        """
+        """Get a random status for voucher."""
         status = ("open", "suspend", "consumed")
         return random.choice(status)
 
     def get_random_percentage(self, start: int = 1, end: int = 100):
-        """
-        Get a random percentage between given start and end numbers.
-        raises a value error if given values are bellow0 or over 100 or if start
-        is bigger than end.
+        """Get a random percentage between given start and end numbers.
+
+        raises a value error if given values are bellow0 or over 100 or
+        if start is bigger than end.
+
         """
         if 100 < start < 0:
             raise ValueError(
@@ -355,14 +352,14 @@ class BaseDataGenerator:
             return random.randint(start, end)
 
     def get_unique_hashes_list(self, total: int, element_length: int = 12):
-        """
-        Get a set(which has unique elements) of hashes.
+        """Get a set(which has unique elements) of hashes.
 
         PARAMS:
         total: int:
             length of the set.
         element_length: int = 12:
             length of each element in the set.
+
         """
         hash_set = {self.get_random_secret(element_length) for _ in range(total)}
         while len(hash_set) < total:
@@ -374,8 +371,7 @@ class BaseDataGenerator:
     def get_random_time_between_two_datetime_objects(
         self, time1: datetime, time2: datetime, tz: timezone = timezone.utc
     ):
-        """
-        Get a random datetime object between two given datetime objects.
+        """Get a random datetime object between two given datetime objects.
         raises ValueError if start time is bigger than end time.
 
         PARAMS
@@ -386,6 +382,7 @@ class BaseDataGenerator:
             end time.
         tz: timezone = timezone.utc:
             requested time zone, default is utc.
+
         """
         time1 = int(datetime.timestamp(time1))
         time2 = int(datetime.timestamp(time2))
@@ -395,15 +392,14 @@ class BaseDataGenerator:
         return datetime.fromtimestamp(random_time).replace(tzinfo=tz)
 
     def get_random_spice(self):
-        """
-        Gets the name of a random spice.
-        """
+        """Gets the name of a random spice."""
         return Food().spices()
 
     def add_to_m2m(
         self, objs: List[Any], target_field: str, item_pre_obj: int, item: Type[T]
     ) -> None:
-        """Add a number of randomly selected objects from a list to a ManyToManyField.
+        """Add a number of randomly selected objects from a list to a
+        ManyToManyField.
 
         This method selects `item_pre_obj` number of objects randomly from the `objs` list and adds them to the ManyToManyField
         on the model instance. The `objs` list must not be empty, or an `IndexError` will be raised.
@@ -420,11 +416,12 @@ class BaseDataGenerator:
 
         Returns:
             None.
+
         """
 
         attr = getattr(item, target_field)
         try:
             items_to_add = list(map(lambda _: random.choice(objs), range(item_pre_obj)))
-        except IndexError as e:
+        except IndexError:
             raise IndexError("`objs` is empty. Please ensure population is not None.")
         attr.add(*items_to_add)
