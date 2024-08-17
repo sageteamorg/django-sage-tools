@@ -5,6 +5,7 @@ import random
 from typing import Any, Set, List, TypeVar, Type
 from datetime import datetime, timezone
 from random import randint
+from django.utils.timezone import make_aware
 
 from django.db.models import Model
 from django.utils.text import slugify
@@ -131,17 +132,17 @@ class BaseDataGenerator:
     def get_random_datetime(self, start=None, end=None):
         """Generate a random time between start and end."""
         if start is None:
-            current_year = timezone.now().year
-            start = timezone.make_aware(datetime(current_year, 1, 1))
+            current_year = datetime.now().year
+            start = make_aware(datetime(current_year, 1, 1))
 
         if end is None:
             current_year = timezone.now().year
-            end = timezone.make_aware(datetime(current_year, 12, 31))
+            end = make_aware(datetime(current_year, 12, 31))
 
         start_timestamp = start.timestamp()
         end_timestamp = end.timestamp()
         random_timestamp = random.uniform(start_timestamp, end_timestamp)
-        random_datetime = timezone.make_aware(datetime.fromtimestamp(random_timestamp))
+        random_datetime = make_aware(datetime.fromtimestamp(random_timestamp))
         return random_datetime
 
     def get_random_boolean(self):
