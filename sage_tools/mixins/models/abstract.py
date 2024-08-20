@@ -1,7 +1,9 @@
-"""
-This module provides a Django model class for image manipulation and retrieval.
-It includes methods for converting image formats, cropping images, and generating
-thumbnails.
+"""This module provides a Django model class for image manipulation and
+retrieval.
+
+It includes methods for converting image formats, cropping images, and
+generating thumbnails.
+
 """
 
 import io
@@ -15,22 +17,25 @@ from django.utils.translation import gettext_lazy as _
 
 try:
     from PIL import Image
-except ImportError as e:
+except ImportError:
     raise ImportError("Install `pillow` package. Run `pip install pillow`.")
 
 try:
     from sorl.thumbnail import get_thumbnail
-except ImportError as e:
+except ImportError:
     raise ImportError(
         "Install `sorl-thumbnail` package. Run `pip install sorl-thumbnail`."
     )
 
 
 class PictureOperationAbstract(models.Model):
-    """
-    An abstract Django model class for performing various operations on images.
-    This class provides functionalities for image conversion, cropping, thumbnail
-    generation, and retrieving image properties like URL, size, and dimensions.
+    """An abstract Django model class for performing various operations on
+    images.
+
+    This class provides functionalities for image conversion, cropping,
+    thumbnail generation, and retrieving image properties like URL,
+    size, and dimensions.
+
     """
 
     picture: str
@@ -61,16 +66,16 @@ class PictureOperationAbstract(models.Model):
     )
 
     class Meta:
-        """
-        Meta
-        """
+        """Meta."""
 
         abstract = True
 
     def convert_to_webp(self):
-        """
-        Converts the image associated with this model instance to the WEBP format.
+        """Converts the image associated with this model instance to the WEBP
+        format.
+
         The converted image replaces the original image.
+
         """
         if ".webp" not in self.picture.path:
             path = self.picture.path
@@ -84,9 +89,11 @@ class PictureOperationAbstract(models.Model):
                 )
 
     def convert_to_jpg(self):
-        """
-        Converts the image associated with this model instance to JPEG format.
+        """Converts the image associated with this model instance to JPEG
+        format.
+
         The converted image replaces the original image.
+
         """
         if ".jpg" not in self.picture.path:
             path = self.picture.path
@@ -101,9 +108,12 @@ class PictureOperationAbstract(models.Model):
                 )
 
     def convert_to_png(self):
-        """
-        Converts the image associated with this model instance to PNG format.
-        The converted image replaces the original image and the original file is removed.
+        """Converts the image associated with this model instance to PNG
+        format.
+
+        The converted image replaces the original image and the original
+        file is removed.
+
         """
         if ".png" not in self.picture.path:
             path = self.picture.path
@@ -119,14 +129,14 @@ class PictureOperationAbstract(models.Model):
             pass
 
     def crop(self, left, top, right, bottom):
-        """
-        Crops the image associated with this model instance.
+        """Crops the image associated with this model instance.
 
         Parameters:
             left (int): The left boundary of the crop box.
             top (int): The upper boundary of the crop box.
             right (int): The right boundary of the crop box.
             bottom (int): The lower boundary of the crop box.
+
         """
         path = self.picture.path
         with Image.open(path) as pic:
@@ -137,37 +147,31 @@ class PictureOperationAbstract(models.Model):
             self.picture.save(os.path.basename(path), output)
 
     def get_thumbnail(self, size="100x100"):
-        """
-        Generates a thumbnail for the image associated with this model instance.
-        """
+        """Generates a thumbnail for the image associated with this model
+        instance."""
         return get_thumbnail(self.picture, crop="center", quality=99)
 
     def get_thumbnail_url(self, size="100x100"):
-        """
-        Retrieves the URL of the thumbnail for the image associated with this model instance.
-        """
+        """Retrieves the URL of the thumbnail for the image associated with
+        this model instance."""
         return get_thumbnail(self.picture, crop="center", quality=99).url
 
     def get_picture_url(self):
-        """
-        Retrieves the URL of the image associated with this model instance.
-        """
+        """Retrieves the URL of the image associated with this model
+        instance."""
         return self.picture.url
 
     def get_picture_size(self):
-        """
-        Retrieves the file size of the image associated with this model instance.
-        """
+        """Retrieves the file size of the image associated with this model
+        instance."""
         return self.picture.size
 
     def get_picture_dimensions(self):
-        """
-        Retrieves the dimensions of the image associated with this model instance.
-        """
+        """Retrieves the dimensions of the image associated with this model
+        instance."""
         return (self.picture.width, self.picture.height)
 
     def get_file_name(self):
-        """
-        Retrieves the file name of the image associated with this model instance.
-        """
+        """Retrieves the file name of the image associated with this model
+        instance."""
         return os.path.basename(self.picture.name)

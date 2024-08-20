@@ -12,8 +12,7 @@ except ImportError:
 
 
 class FileDeletionHandler:
-    """
-    A handler for managing file deletions linked to Django model fields.
+    """A handler for managing file deletions linked to Django model fields.
 
     This class provides methods to identify file fields in a model, delete old
     files when new ones are uploaded, and orchestrate the overall file deletion
@@ -29,12 +28,12 @@ class FileDeletionHandler:
 
     handle_deletion(sender, instance):
         Conduct a check and delete operation for file fields of the given model instance.
+
     """
 
     @staticmethod
     def is_file_field(field):
-        """
-        Check if the provided field is a type of file field.
+        """Check if the provided field is a type of file field.
 
         Parameters
         ----------
@@ -46,6 +45,7 @@ class FileDeletionHandler:
         bool
             True if the field is a FileField, ImageField, or a custom ImageField
             from `sorl.thumbnail`, otherwise False.
+
         """
         return (
             isinstance(field, models.FileField)  # noqa: PLR1701
@@ -55,8 +55,8 @@ class FileDeletionHandler:
 
     @staticmethod
     def delete_old_file(old_instance, field_name):
-        """
-        Delete the file associated with the provided field name in the old instance if it exists.
+        """Delete the file associated with the provided field name in the old
+        instance if it exists.
 
         Parameters
         ----------
@@ -69,6 +69,7 @@ class FileDeletionHandler:
         -----
         This method directly interacts with the file system to delete files and should
         be used with caution to avoid accidental data loss.
+
         """
         old_file = getattr(old_instance, field_name, None)
         if old_file and os.path.isfile(old_file.path):
@@ -76,8 +77,7 @@ class FileDeletionHandler:
 
     @classmethod
     def handle_deletion(cls, sender, instance):
-        """
-        Handle the deletion of files for the provided instance based on the
+        """Handle the deletion of files for the provided instance based on the
         application settings and instance state.
 
         Parameters
@@ -92,6 +92,7 @@ class FileDeletionHandler:
         This method orchestrates the deletion process by iterating over all fields of
         the instance, checking for file changes, and deleting old files as necessary.
         It respects the `CLEANUP_DELETE_FILES` setting to determine if deletion should occur.
+
         """
         if not getattr(settings, "CLEANUP_DELETE_FILES", True):
             return  # If file deletion is disabled, do nothing

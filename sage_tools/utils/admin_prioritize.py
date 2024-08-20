@@ -4,10 +4,8 @@ from django.contrib.admin.sites import site
 
 
 def get_app_list(self, request, app_label=None):
-    """
-    Return a sorted list of all the installed apps that have been
-    registered in this site.
-    """
+    """Return a sorted list of all the installed apps that have been registered
+    in this site."""
     app_dict = self._build_app_dict(request)
 
     # Filter by app_label if provided

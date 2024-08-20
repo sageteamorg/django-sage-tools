@@ -4,10 +4,13 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CommentBaseModel(models.Model):
-    """
-    An abstract base class model that provides a common structure for comments across different models.
-    This mixin includes fields for associating a comment with a user, storing the comment's message,
-    and supporting nested replies to facilitate threaded discussions.
+    """An abstract base class model that provides a common structure for
+    comments across different models.
+
+    This mixin includes fields for associating a comment with a user,
+    storing the comment's message, and supporting nested replies to
+    facilitate threaded discussions.
+
     """
 
     user = models.ForeignKey(

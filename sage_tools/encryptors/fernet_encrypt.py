@@ -1,14 +1,13 @@
 from .base import Encryptor
 
 try:
-    from cryptography.fernet import Fernet, InvalidToken
+    from cryptography.fernet import Fernet
 except ImportError:
     raise ImportError("Install `cryptography` package. Run `pip install cryptography`.")
 
 
 class FernetEncryptor(Encryptor):
-    """
-    Fernet encryption class.
+    """Fernet encryption class.
 
     This class uses the Fernet symmetric encryption method provided by the `cryptography` package to encrypt and decrypt data.
 
@@ -32,14 +31,14 @@ class FernetEncryptor(Encryptor):
     >>> decrypted_data = encryptor.decrypt(encrypted_data)
     >>> decrypted_data
     'Hello, World!'
+
     """
 
     def __init__(self, secret_key: str):
         self.fernet = Fernet(secret_key)
 
     def encrypt(self, data: str) -> str:
-        """
-        Encrypts the given data using Fernet encryption.
+        """Encrypts the given data using Fernet encryption.
 
         Parameters
         ----------
@@ -50,6 +49,7 @@ class FernetEncryptor(Encryptor):
         -------
         str
             The encrypted data.
+
         """
         self._validate_data(data)
         data = self._encode_data(data)
@@ -57,8 +57,7 @@ class FernetEncryptor(Encryptor):
         return encrypted_value.decode("utf-8")
 
     def decrypt(self, data: str) -> str:
-        """
-        Decrypts the given data using Fernet encryption.
+        """Decrypts the given data using Fernet encryption.
 
         Parameters
         ----------
@@ -69,14 +68,14 @@ class FernetEncryptor(Encryptor):
         -------
         str
             The decrypted data.
+
         """
         self._validate_data(data)
         data = self._encode_data(data)
         return self.fernet.decrypt(data).decode("utf-8")
 
     def _validate_data(self, data):
-        """
-        Validates the data to ensure it is either a string or bytes.
+        """Validates the data to ensure it is either a string or bytes.
 
         Parameters
         ----------
@@ -87,6 +86,7 @@ class FernetEncryptor(Encryptor):
         ------
         TypeError
             If the data is not a string or bytes.
+
         """
         if not isinstance(data, (str, bytes)):
             raise TypeError(
@@ -94,8 +94,7 @@ class FernetEncryptor(Encryptor):
             )
 
     def _encode_data(self, data):
-        """
-        Encodes the data to bytes if it is a string.
+        """Encodes the data to bytes if it is a string.
 
         Parameters
         ----------
@@ -106,6 +105,7 @@ class FernetEncryptor(Encryptor):
         -------
         bytes
             The encoded data.
+
         """
         if isinstance(data, str):
             data = data.encode("utf-8")

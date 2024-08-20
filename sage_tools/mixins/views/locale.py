@@ -7,8 +7,7 @@ from sage_tools.utils.locale import MultilingualService
 
 
 class SetLanguageMixinView(View):
-    """
-    A Django view for setting the user's language preference.
+    """A Django view for setting the user's language preference.
 
     `SetLanguageView` extends Django's base `View` class to provide a POST method
     that allows users to switch their language preference. It updates the language
@@ -31,11 +30,11 @@ class SetLanguageMixinView(View):
     This view can be used in a Django project by including it in the URL configuration.
     It responds to POST requests with `language` and `next` parameters to set the language
     and redirect to the next page, respectively.
+
     """
 
     def post(self, request, *args, **kwargs):
-        """
-        Handle POST request to set the user's language preference.
+        """Handle POST request to set the user's language preference.
 
         This method retrieves the language preference from the POST request, activates
         the chosen language, and redirects the user to a specified URL, optionally with
@@ -61,6 +60,7 @@ class SetLanguageMixinView(View):
         The method checks for the `language` and `next` parameters in the POST data.
         It uses `MultilingualService` to add a language prefix to the redirection URL
         if a non-default language is selected.
+
         """
 
         language = request.POST.get("language", settings.LANGUAGE_CODE)
