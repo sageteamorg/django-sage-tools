@@ -11,10 +11,11 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.12"
-django = "^5.0.7"
-mimesis = "^17.0.0"
+python = "^3.8"
+django = "^4.2"
+mimesis = "^11.1.0"
 pillow = "^10.4.0"
+cryptography = "^43.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -22,8 +23,8 @@ black = "^24.4.2"
 isort = "^5.13.2"
 tox = "^4.16.0"
 coverage = "^7.6.0"
-pre-commit = "^3.7.1"
-sphinx = "^7.4.7"
+pre-commit = "^3.5.0"
+sphinx = "^6.2.1"
 pylint = "^3.2.6"
 sphinx-rtd-theme = "^2.0.0"
 commitizen = "^3.28.0"
