@@ -628,6 +628,26 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django"
+version = "5.1"
+description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
+optional = false
+python-versions = ">=3.10"
+files = [
+    {file = "Django-5.1-py3-none-any.whl", hash = "sha256:d3b811bf5371a26def053d7ee42a9df1267ef7622323fe70a601936725aa4557"},
+    {file = "Django-5.1.tar.gz", hash = "sha256:848a5980e8efb76eea70872fb0e4bc5e371619c70fffbe48e3e1b50b2c09455d"},
+]
+
+[package.dependencies]
+asgiref = ">=3.8.1,<4"
+sqlparse = ">=0.3.1"
+tzdata = {version = "*", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+argon2 = ["argon2-cffi (>=19.1.0)"]
+bcrypt = ["bcrypt"]
+
+[[package]]
 name = "django-stubs"
 version = "5.0.4"
 description = "Mypy stubs for Django"
@@ -741,13 +761,13 @@ license = ["ukkonen"]
 
 [[package]]
 name = "idna"
-version = "3.7"
+version = "3.8"
 description = "Internationalized Domain Names in Applications (IDNA)"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.6"
 files = [
-    {file = "idna-3.7-py3-none-any.whl", hash = "sha256:82fee1fc78add43492d3a1898bfa6d8a904cc97d8427f683ed8e798d07761aa0"},
-    {file = "idna-3.7.tar.gz", hash = "sha256:028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"},
+    {file = "idna-3.8-py3-none-any.whl", hash = "sha256:050b4e5baadcd44d760cedbd2b8e639f2ff89bbc7a5730fcc662954303377aac"},
+    {file = "idna-3.8.tar.gz", hash = "sha256:d838c2c0ed6fced7693d5e8ab8e734d5f8fda53a039c0164afb0b82e771e3603"},
 ]
 
 [[package]]
@@ -763,13 +783,13 @@ files = [
 
 [[package]]
 name = "importlib-metadata"
-version = "8.3.0"
+version = "8.4.0"
 description = "Read metadata from Python packages"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "importlib_metadata-8.3.0-py3-none-any.whl", hash = "sha256:42817a4a0be5845d22c6e212db66a94ad261e2318d80b3e0d363894a79df2b67"},
-    {file = "importlib_metadata-8.3.0.tar.gz", hash = "sha256:9c8fa6e8ea0f9516ad5c8db9246a731c948193c7754d3babb0114a05b27dd364"},
+    {file = "importlib_metadata-8.4.0-py3-none-any.whl", hash = "sha256:66f342cc6ac9818fc6ff340576acd24d65ba0b3efabb2b4ac08b598965a4a2f1"},
+    {file = "importlib_metadata-8.4.0.tar.gz", hash = "sha256:9a547d3bc3608b025f93d403fdd1aae741c24fbb8314df4b155675742ce303c5"},
 ]
 
 [package.dependencies]
@@ -1752,5 +1772,5 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.8"
-content-hash = "ba0883024e168e3b48f7d166d730dc1b5d51ddd2bfcbaa981e3acd94dcba08fc"
+python-versions = ">=3.8,<4.0"
+content-hash = "406d24149d6725c1fc2011180ae71898e5bb51e4bd9fca326e9ef46c5a00f2bb"
