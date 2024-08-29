@@ -168,3 +168,4 @@ manage.py
 **/migrations/*
 !**/migrations/__init__.py
 venv_3_8
+bandit_report.txt
