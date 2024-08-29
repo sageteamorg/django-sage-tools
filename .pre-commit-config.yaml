@@ -1,20 +1,19 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: v4.4.0
     hooks:
       - id: trailing-whitespace
         exclude: (migrations/|tests/|docs/|static/|media/).*
       - id: end-of-file-fixer
         exclude: (migrations/|tests/|docs/|static/|media/).*
-      - id: check-added-large-files
-        exclude: (migrations/|tests/|docs/|static/|media/).*
-      - id: check-case-conflict
-        exclude: (migrations/|tests/|docs/|static/|media/).*
       - id: check-merge-conflict
         exclude: (migrations/|tests/|docs/|static/|media/).*
-      - id: check-docstring-first
+      - id: check-yaml
         exclude: (migrations/|tests/|docs/|static/|media/).*
-
+      - id: check-added-large-files
+        exclude: (migrations/|tests/|docs/|static/|media/).*
+      - id: detect-private-key
+        exclude: (migrations/|tests/|docs/|static/|media/).*
 
   - repo: https://github.com/pre-commit/mirrors-isort
     rev: v5.10.1
@@ -26,4 +25,52 @@ repos:
     rev: 23.3.0
     hooks:
       - id: black
+        args: ["--config=pyproject.toml"]
         exclude: (migrations/|tests/|docs/|static/|media/).*
+
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.5.5
+    hooks:
+      - id: ruff
+        args: ["--config=pyproject.toml"]
+        exclude: (migrations/|tests/|docs/|static/|media/).*
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.28.0
+    hooks:
+      - id: commitizen
+        exclude: (migrations/|tests/|docs/|static/|media/).*
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.4
+    hooks:
+      - id: bandit
+        args: ["-c", "pyproject.toml", "-r", "."]
+        additional_dependencies: [ "bandit[toml]" ]
+        exclude: (migrations/|tests/|docs/|static/|media/).*
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: Pytest
+        entry: poetry run pytest -v
+        language: system
+        types: [python]
+        stages: [commit]
+        pass_filenames: false
+        always_run: true
+
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        require_serial: true
+        args:
+          - "-rn"
+          - "-sn"
+          - "--rcfile=pyproject.toml"
+        files: ^sage_tools/
+
+ci:
+  skip: [pylint]
