@@ -1,21 +1,3 @@
-"""ForeignKeyLinker Module.
-
-This module contains a class, ForeignKeyLinker, designed to generate
-a function for linking to a related object's change page in the Django admin interface.
-The generated function can be used in a Django ModelAdmin class within the list_display
-property to display clickable links to related objects.
-
-Classes:
-    - ForeignKeyLinker: Generates link functions for related objects in Django admin.
-
-Attributes:
-    - field_name (str): The name of the foreign key field in the model.
-    - short_description (str, optional): A short description for the function,
-    used as the column header. Defaults to the capitalized field name with
-    underscores replaced by spaces.
-
-"""
-
 from django.urls import reverse
 from django.utils.html import format_html
 
@@ -43,7 +25,7 @@ class ForeignKeyLinker:
             short_description or field_name.replace("_", " ").capitalize()
         )
 
-    def link_to_fk(self, obj):
+    def link_to_fk(self, obj, field_name):
         """Return an HTML link to the related object's change page in the
         Django admin interface.
 
@@ -67,11 +49,14 @@ class ForeignKeyLinker:
             f"admin:{related_obj._meta.app_label}_{related_obj._meta.model_name}_change",
             args=[related_obj.pk],
         )
-
         # Return the HTML string
-        return format_html('<a href="{}">{}</a>', url, related_obj)
+        if field_name:
+            attr_name = getattr(related_obj, field_name)
+        else:
+            attr_name = related_obj
+        return format_html('<a href="{}">{}</a>', url, attr_name)
 
-    def get_link(self):
+    def get_link(self, field_name=None):
         """Return the function for use in a Django ModelAdmin class.
 
         Returns:
@@ -81,11 +66,10 @@ class ForeignKeyLinker:
 
         # Define the function
         def func(obj):
-            return self.link_to_fk(obj)
+            return self.link_to_fk(obj, field_name)
 
         func.__name__ = self.field_name
         func.short_description = self.short_description
         func.admin_order_field = self.field_name
 
-        # Return the function
         return func
