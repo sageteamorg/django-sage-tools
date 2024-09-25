@@ -1,9 +1,9 @@
 import logging
-from django.conf import settings
-
 from typing import Any
-from django.utils import timezone
+
+from django.conf import settings
 from django.http import HttpRequest
+from django.utils import timezone
 from django.utils.deprecation import MiddlewareMixin
 
 from sage_tools.handlers.session import SessionHandler

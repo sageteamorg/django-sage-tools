@@ -1,12 +1,12 @@
 import io
-import secrets
 import random
-from typing import Any, Set, List, TypeVar, Type
+import secrets
 from datetime import datetime, timezone
-from django.utils.timezone import make_aware
+from typing import Any, List, Set, Type, TypeVar
 
 from django.db.models import Model
 from django.utils.text import slugify
+from django.utils.timezone import make_aware
 
 try:
     from PIL import Image, ImageDraw, ImageFont
@@ -16,16 +16,8 @@ except ImportError:
     )
 
 try:
+    from mimesis import Address, Datetime, Finance, Food, Numeric, Person, Text
     from mimesis.locales import Locale
-    from mimesis import (
-        Text,
-        Person,
-        Numeric,
-        Finance,
-        Datetime,
-        Address,
-        Food,
-    )
 except ImportError:
     raise ImportError(  # noqa: B904
         "Install `mimesis` package. Run `pip install mimesis`."

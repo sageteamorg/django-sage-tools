@@ -9,8 +9,9 @@ configuration values from it.
 """
 
 import logging
-import tomllib
 from typing import Any, Dict, Optional
+
+import tomllib
 
 logger = logging.getLogger(__name__)
 

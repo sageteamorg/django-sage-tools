@@ -1,9 +1,9 @@
 from .user import (
-    UserFormKwargsMixin,
-    MessageMixin,
-    FormValidMessageMixin,
     FormInvalidMessageMixin,
     FormMessagesMixin,
+    FormValidMessageMixin,
+    MessageMixin,
+    UserFormKwargsMixin,
     UserKwargModelFormMixin,
 )
 
