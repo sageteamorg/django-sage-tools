@@ -1,7 +1,7 @@
 import io
 import random
 import secrets
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from typing import Any, List, Set, Type, TypeVar
 
 from django.db.models import Model
@@ -417,3 +417,17 @@ class BaseDataGenerator:
         except IndexError:
             raise IndexError("`objs` is empty. Please ensure population is not None.")
         attr.add(*items_to_add)
+
+    def get_random_timedelta(self, min_minutes=0, max_minutes=1):
+        """
+        Scenario:
+            Create a random duration within a specified range of minutes for varied
+            applications.
+
+        Algorithm:
+            Converts a given minute range to seconds and generates a random duration
+            within this range, returning it as a timedelta object.
+        """
+        max_seconds = max_minutes * 60
+        min_seconds = min_minutes * 60
+        return timedelta(seconds=random.randint(min_seconds, max_seconds))
