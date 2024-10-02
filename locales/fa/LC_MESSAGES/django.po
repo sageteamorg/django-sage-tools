@@ -3,143 +3,144 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-02 16:15+0330\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2024-10-02 16:41+0330\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2\n"
+
 #: .\build\lib\sage_tools\mixins\models\abstract.py:39
 #: .\sage_tools\mixins\models\abstract.py:44
 msgid "Picture Alternate Text"
-msgstr ""
+msgstr "متن جایگزین تصویر"
 
 #: .\build\lib\sage_tools\mixins\models\abstract.py:44
 #: .\sage_tools\mixins\models\abstract.py:49
 msgid "Write about picture for SEO"
-msgstr ""
+msgstr "در مورد تصویر برای بهینه‌سازی موتورهای جستجو بنویسید"
 
 #: .\build\lib\sage_tools\mixins\models\abstract.py:48
 #: .\sage_tools\mixins\models\abstract.py:53
 msgid "Picture Width"
-msgstr ""
+msgstr "عرض تصویر"
 
 #: .\build\lib\sage_tools\mixins\models\abstract.py:52
 #: .\sage_tools\mixins\models\abstract.py:57
 msgid "size of picture's Width"
-msgstr ""
+msgstr "اندازه عرض تصویر"
 
 #: .\build\lib\sage_tools\mixins\models\abstract.py:56
 #: .\sage_tools\mixins\models\abstract.py:61
 msgid "Picture Height"
-msgstr ""
+msgstr "طول تصویر"
 
 #: .\build\lib\sage_tools\mixins\models\abstract.py:60
 #: .\sage_tools\mixins\models\abstract.py:65
 msgid "size of picture's Height"
-msgstr ""
+msgstr "اندازه طول  تصویر"
 
 #: .\build\lib\sage_tools\mixins\models\address.py:11
 #: .\build\lib\sage_tools\mixins\models\base.py:100
 #: .\sage_tools\mixins\models\address.py:10
 #: .\sage_tools\mixins\models\base.py:97
 msgid "Title"
-msgstr ""
+msgstr "عنوان"
 
 #: .\build\lib\sage_tools\mixins\models\address.py:13
 #: .\sage_tools\mixins\models\address.py:12
 msgid "A descriptive title for the address, such as 'Home' or 'Office'."
-msgstr ""
+msgstr "یک عنوان توصیفی برای آدرس، مانند 'خانه' یا 'دفتر'."
 
 #: .\build\lib\sage_tools\mixins\models\address.py:17
 #: .\sage_tools\mixins\models\address.py:16
 msgid "Country"
-msgstr ""
+msgstr "کشور"
 
 #: .\build\lib\sage_tools\mixins\models\address.py:19
 #: .\sage_tools\mixins\models\address.py:18
 msgid "The country where the address is located."
-msgstr ""
+msgstr "کشوری که آدرس در آن قرار دارد."
 
 #: .\build\lib\sage_tools\mixins\models\address.py:23
 #: .\sage_tools\mixins\models\address.py:22
 msgid "Province"
-msgstr ""
+msgstr "استان"
 
 #: .\build\lib\sage_tools\mixins\models\address.py:25
 #: .\sage_tools\mixins\models\address.py:24
 msgid "The province, state, or regional division of the address."
-msgstr ""
+msgstr "استان، ایالت یا تقسیمات منطقه‌ای که آدرس در آن قرار دارد."
 
 #: .\build\lib\sage_tools\mixins\models\address.py:29
 #: .\sage_tools\mixins\models\address.py:28
 msgid "City"
-msgstr ""
+msgstr "شهر"
 
 #: .\build\lib\sage_tools\mixins\models\address.py:31
 #: .\sage_tools\mixins\models\address.py:30
 msgid "The city or town of the address."
-msgstr ""
+msgstr "شهر یا شهرک که آدرس در آن قرار دارد."
 
 #: .\build\lib\sage_tools\mixins\models\address.py:35
 #: .\sage_tools\mixins\models\address.py:34
 msgid "Postal Address"
-msgstr ""
+msgstr "آدرس پستی"
 
 #: .\build\lib\sage_tools\mixins\models\address.py:37
 #: .\sage_tools\mixins\models\address.py:36
 msgid ""
 "The full postal address, including street name, number, and any additional "
 "details."
-msgstr ""
+msgstr "آدرس پستی کامل، شامل نام خیابان، شماره، و هر جزئیات اضافی."
 
 #: .\build\lib\sage_tools\mixins\models\address.py:42
 #: .\sage_tools\mixins\models\address.py:41
 msgid "Postal Code"
-msgstr ""
+msgstr "کد پستی"
 
 #: .\build\lib\sage_tools\mixins\models\address.py:44
 #: .\sage_tools\mixins\models\address.py:43
 msgid "The postal or ZIP code for the address."
-msgstr ""
+msgstr "کد پستی یا زیپ برای آدرس."
 
 #: .\build\lib\sage_tools\mixins\models\address.py:48
 #: .\sage_tools\mixins\models\address.py:47
 msgid "Plaque"
-msgstr ""
+msgstr "پلاک"
 
 #: .\build\lib\sage_tools\mixins\models\address.py:50
 #: .\sage_tools\mixins\models\address.py:49
 msgid "The specific plaque number of the building or house."
-msgstr ""
+msgstr "شماره پلاک مشخص ساختمان یا خانه."
 
 #: .\build\lib\sage_tools\mixins\models\address.py:54
 #: .\sage_tools\mixins\models\address.py:53
 msgid "Building Unit"
-msgstr ""
+msgstr "واحد ساختمان"
 
 #: .\build\lib\sage_tools\mixins\models\address.py:58
 #: .\sage_tools\mixins\models\address.py:57
 msgid "The unit or apartment number within a building, if applicable."
-msgstr ""
+msgstr "شماره واحد یا آپارتمان در داخل ساختمان، در صورت وجود."
 
 #: .\build\lib\sage_tools\mixins\models\base.py:33
 #: .\sage_tools\mixins\models\base.py:32
 msgid "Created at"
-msgstr ""
+msgstr "ایجاد شده در"
 
 #: .\build\lib\sage_tools\mixins\models\base.py:34
 #: .\sage_tools\mixins\models\base.py:33
 msgid "Modified at"
-msgstr ""
+msgstr "ویرایش شده در"
 
 #: .\build\lib\sage_tools\mixins\models\base.py:56
 #: .\sage_tools\mixins\models\base.py:53
@@ -148,11 +149,14 @@ msgid ""
 "content. This identifier is used as the unique primary key and should not be "
 "modified manually."
 msgstr ""
+"یک شناسه منحصربه‌فرد جهانی (UUID) به‌طور خودکار برای این محتوا ایجاد شده است. "
+"این شناسه به‌عنوان کلید اصلی منحصر به‌فرد استفاده می‌شود و نباید به‌صورت دستی "
+"تغییر داده شود."
 
 #: .\build\lib\sage_tools\mixins\models\base.py:73
 #: .\sage_tools\mixins\models\base.py:70
 msgid "Stock of Unit"
-msgstr ""
+msgstr "موجودی واحد"
 
 #: .\build\lib\sage_tools\mixins\models\base.py:78
 #: .\sage_tools\mixins\models\base.py:75
@@ -160,33 +164,36 @@ msgid ""
 "A unique identifier assigned to each product in inventory. This Stock Unit "
 "SKU is used to uniquely identify and manage products in your inventory."
 msgstr ""
+"یک شناسه منحصربه‌فرد به هر محصول در انبار اختصاص داده می‌شود. این شناسه موجودی "
+"(Stock Unit SKU) برای شناسایی و مدیریت منحصربه‌فرد محصولات در انبار شما "
+"استفاده می‌شود."
 
 #: .\build\lib\sage_tools\mixins\models\base.py:103
 #: .\sage_tools\mixins\models\base.py:100
 msgid "Enter a unique title."
-msgstr ""
+msgstr "یک عنوان منحصر به فرد وارد کنید."
 
 #: .\build\lib\sage_tools\mixins\models\base.py:108
 #: .\sage_tools\mixins\models\base.py:105
 msgid "Slug"
-msgstr ""
+msgstr "اسلاگ"
 
 #: .\build\lib\sage_tools\mixins\models\base.py:113
 #: .\sage_tools\mixins\models\base.py:110
 msgid "URL-friendly slug from the title."
-msgstr ""
+msgstr "اسلاگ سازگار با URL از عنوان."
 
 #: .\build\lib\sage_tools\mixins\models\base.py:117
 #: .\sage_tools\mixins\models\base.py:114
 msgid "title"
-msgstr ""
+msgstr "عنوان"
 
 #: .\build\lib\sage_tools\mixins\models\base.py:198
 #: .\build\lib\sage_tools\mixins\models\base.py:225
 #: .\sage_tools\mixins\models\base.py:202
 #: .\sage_tools\mixins\models\base.py:227
 msgid "Description"
-msgstr ""
+msgstr "توضیحات"
 
 #: .\build\lib\sage_tools\mixins\models\base.py:200
 #: .\build\lib\sage_tools\mixins\models\base.py:227
@@ -196,11 +203,13 @@ msgid ""
 "Enter a detailed description of the item. This can include its purpose, "
 "characteristics, and any other relevant information."
 msgstr ""
+"یک توضیح دقیق از مورد وارد کنید. این می‌تواند شامل هدف، ویژگی‌ها و هر اطلاعات "
+"مرتبط دیگری باشد."
 
 #: .\build\lib\sage_tools\mixins\models\comment.py.py:18
 #: .\sage_tools\mixins\models\comment.py:21
 msgid "User"
-msgstr ""
+msgstr "کاربر"
 
 #: .\build\lib\sage_tools\mixins\models\comment.py.py:20
 #: .\sage_tools\mixins\models\comment.py:23
@@ -208,21 +217,23 @@ msgid ""
 "Select the user who submitted this comment or question. If the user is "
 "deleted, the comment will remain but the user reference will be removed."
 msgstr ""
+"کاربری را که این نظر یا سوال را ارسال کرده انتخاب کنید. اگر کاربر حذف شود، "
+"نظر باقی می‌ماند اما مرجع کاربر حذف خواهد شد."
 
 #: .\build\lib\sage_tools\mixins\models\comment.py.py:27
 #: .\sage_tools\mixins\models\comment.py:30
 msgid "Comment Message"
-msgstr ""
+msgstr "پیام نظر"
 
 #: .\build\lib\sage_tools\mixins\models\comment.py.py:28
 #: .\sage_tools\mixins\models\comment.py:31
 msgid "Enter the comment, feedback, or question provided by the user."
-msgstr ""
+msgstr "نظر، بازخورد یا سوال ارائه شده توسط کاربر را وارد کنید."
 
 #: .\build\lib\sage_tools\mixins\models\comment.py.py:38
 #: .\sage_tools\mixins\models\comment.py:41
 msgid "Parent Comment"
-msgstr ""
+msgstr "نظر سطح بالا"
 
 #: .\build\lib\sage_tools\mixins\models\comment.py.py:40
 #: .\sage_tools\mixins\models\comment.py:43
@@ -230,11 +241,13 @@ msgid ""
 "The parent comment to which this is a reply. Leave this blank for top-level "
 "comments."
 msgstr ""
+"نظری که این نظر به آن پاسخ می‌دهد. برای نظرات سطح بالا این فیلد را خالی "
+"بگذارید."
 
 #: .\build\lib\sage_tools\mixins\models\comment.py.py:47
 #: .\sage_tools\mixins\models\comment.py:50
 msgid "Is Active"
-msgstr ""
+msgstr "فعال است"
 
 #: .\build\lib\sage_tools\mixins\models\comment.py.py:49
 #: .\sage_tools\mixins\models\comment.py:52
@@ -242,40 +255,44 @@ msgid ""
 "Indicates whether the comment is active and visible on the site. Use this to "
 "hide comments that violate site policies."
 msgstr ""
+"مشخص می‌کند که آیا نظر فعال و قابل مشاهده در سایت است یا خیر. از این گزینه "
+"برای مخفی کردن نظراتی که با سیاست‌های سایت مغایرت دارند، استفاده کنید."
 
 #: .\build\lib\sage_tools\mixins\models\rating.py:25
 #: .\sage_tools\mixins\models\rating.py:29
 msgid "Rating"
-msgstr ""
+msgstr "امتیازدهی"
 
 #: .\build\lib\sage_tools\mixins\models\rating.py:27
 #: .\sage_tools\mixins\models\rating.py:31
 msgid "Rate from 1 (lowest) to 5 (highest)."
-msgstr ""
+msgstr "امتیاز از ۱ (کمترین) تا ۵ (بالاترین)."
 
 #: .\build\lib\sage_tools\mixins\models\rating.py:29
 #: .\sage_tools\mixins\models\rating.py:33
 msgid "Rating must be at least 1."
-msgstr ""
+msgstr "امتیازدهی باید حداقل ۱ باشد."
 
 #: .\build\lib\sage_tools\mixins\models\rating.py:30
 #: .\sage_tools\mixins\models\rating.py:34
 msgid "Rating cannot be more than 5."
-msgstr ""
+msgstr "امتیازدهی نباید بیش از ۵ باشد."
 
 #: .\build\lib\sage_tools\mixins\models\rating.py:32
 #: .\sage_tools\mixins\models\rating.py:36
 msgid "Rating must be between 1 and 5 in half-point increments."
-msgstr ""
+msgstr "امتیازدهی باید بین ۱ تا ۵ با نیم‌امتیاز افزایش یابد."
 
 #: .\build\lib\sage_tools\validators\numeral.py:9
 #: .\sage_tools\validators\numeral.py:9
 msgid ""
 "Ensure your rating is in half-point increments within the range of 1 to 5."
-msgstr ""
+msgstr "امتیازدهی باید بین ۱ تا ۵ با نیم‌امتیاز افزایش یابد."
 
 #: .\sage_tools\validators\string.py:11
 msgid ""
 "Enter a valid name. The name can only contain letters, spaces, hyphens, and "
 "apostrophes. Examples: John Doe, Mary-Jane O'Connor."
 msgstr ""
+"یک نام معتبر وارد کنید. نام تنها می‌تواند شامل حروف، فاصله، خط تیره و "
+"آپاستروف باشد. مثال‌ها: جان دو، مری-جین او'کانر."
