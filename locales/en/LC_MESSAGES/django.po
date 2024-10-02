@@ -1,0 +1,281 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-02 16:16+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\build\lib\sage_tools\mixins\models\abstract.py:39
+#: .\sage_tools\mixins\models\abstract.py:44
+msgid "Picture Alternate Text"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\abstract.py:44
+#: .\sage_tools\mixins\models\abstract.py:49
+msgid "Write about picture for SEO"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\abstract.py:48
+#: .\sage_tools\mixins\models\abstract.py:53
+msgid "Picture Width"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\abstract.py:52
+#: .\sage_tools\mixins\models\abstract.py:57
+msgid "size of picture's Width"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\abstract.py:56
+#: .\sage_tools\mixins\models\abstract.py:61
+msgid "Picture Height"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\abstract.py:60
+#: .\sage_tools\mixins\models\abstract.py:65
+msgid "size of picture's Height"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:11
+#: .\build\lib\sage_tools\mixins\models\base.py:100
+#: .\sage_tools\mixins\models\address.py:10
+#: .\sage_tools\mixins\models\base.py:97
+msgid "Title"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:13
+#: .\sage_tools\mixins\models\address.py:12
+msgid "A descriptive title for the address, such as 'Home' or 'Office'."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:17
+#: .\sage_tools\mixins\models\address.py:16
+msgid "Country"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:19
+#: .\sage_tools\mixins\models\address.py:18
+msgid "The country where the address is located."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:23
+#: .\sage_tools\mixins\models\address.py:22
+msgid "Province"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:25
+#: .\sage_tools\mixins\models\address.py:24
+msgid "The province, state, or regional division of the address."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:29
+#: .\sage_tools\mixins\models\address.py:28
+msgid "City"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:31
+#: .\sage_tools\mixins\models\address.py:30
+msgid "The city or town of the address."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:35
+#: .\sage_tools\mixins\models\address.py:34
+msgid "Postal Address"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:37
+#: .\sage_tools\mixins\models\address.py:36
+msgid ""
+"The full postal address, including street name, number, and any additional "
+"details."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:42
+#: .\sage_tools\mixins\models\address.py:41
+msgid "Postal Code"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:44
+#: .\sage_tools\mixins\models\address.py:43
+msgid "The postal or ZIP code for the address."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:48
+#: .\sage_tools\mixins\models\address.py:47
+msgid "Plaque"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:50
+#: .\sage_tools\mixins\models\address.py:49
+msgid "The specific plaque number of the building or house."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:54
+#: .\sage_tools\mixins\models\address.py:53
+msgid "Building Unit"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\address.py:58
+#: .\sage_tools\mixins\models\address.py:57
+msgid "The unit or apartment number within a building, if applicable."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\base.py:33
+#: .\sage_tools\mixins\models\base.py:32
+msgid "Created at"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\base.py:34
+#: .\sage_tools\mixins\models\base.py:33
+msgid "Modified at"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\base.py:56
+#: .\sage_tools\mixins\models\base.py:53
+msgid ""
+"A universally unique identifier (UUID) automatically generated for this "
+"content. This identifier is used as the unique primary key and should not be "
+"modified manually."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\base.py:73
+#: .\sage_tools\mixins\models\base.py:70
+msgid "Stock of Unit"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\base.py:78
+#: .\sage_tools\mixins\models\base.py:75
+msgid ""
+"A unique identifier assigned to each product in inventory. This Stock Unit "
+"SKU is used to uniquely identify and manage products in your inventory."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\base.py:103
+#: .\sage_tools\mixins\models\base.py:100
+msgid "Enter a unique title."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\base.py:108
+#: .\sage_tools\mixins\models\base.py:105
+msgid "Slug"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\base.py:113
+#: .\sage_tools\mixins\models\base.py:110
+msgid "URL-friendly slug from the title."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\base.py:117
+#: .\sage_tools\mixins\models\base.py:114
+msgid "title"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\base.py:198
+#: .\build\lib\sage_tools\mixins\models\base.py:225
+#: .\sage_tools\mixins\models\base.py:202
+#: .\sage_tools\mixins\models\base.py:227
+msgid "Description"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\base.py:200
+#: .\build\lib\sage_tools\mixins\models\base.py:227
+#: .\sage_tools\mixins\models\base.py:204
+#: .\sage_tools\mixins\models\base.py:229
+msgid ""
+"Enter a detailed description of the item. This can include its purpose, "
+"characteristics, and any other relevant information."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\comment.py.py:18
+#: .\sage_tools\mixins\models\comment.py:21
+msgid "User"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\comment.py.py:20
+#: .\sage_tools\mixins\models\comment.py:23
+msgid ""
+"Select the user who submitted this comment or question. If the user is "
+"deleted, the comment will remain but the user reference will be removed."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\comment.py.py:27
+#: .\sage_tools\mixins\models\comment.py:30
+msgid "Comment Message"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\comment.py.py:28
+#: .\sage_tools\mixins\models\comment.py:31
+msgid "Enter the comment, feedback, or question provided by the user."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\comment.py.py:38
+#: .\sage_tools\mixins\models\comment.py:41
+msgid "Parent Comment"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\comment.py.py:40
+#: .\sage_tools\mixins\models\comment.py:43
+msgid ""
+"The parent comment to which this is a reply. Leave this blank for top-level "
+"comments."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\comment.py.py:47
+#: .\sage_tools\mixins\models\comment.py:50
+msgid "Is Active"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\comment.py.py:49
+#: .\sage_tools\mixins\models\comment.py:52
+msgid ""
+"Indicates whether the comment is active and visible on the site. Use this to "
+"hide comments that violate site policies."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\rating.py:25
+#: .\sage_tools\mixins\models\rating.py:29
+msgid "Rating"
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\rating.py:27
+#: .\sage_tools\mixins\models\rating.py:31
+msgid "Rate from 1 (lowest) to 5 (highest)."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\rating.py:29
+#: .\sage_tools\mixins\models\rating.py:33
+msgid "Rating must be at least 1."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\rating.py:30
+#: .\sage_tools\mixins\models\rating.py:34
+msgid "Rating cannot be more than 5."
+msgstr ""
+
+#: .\build\lib\sage_tools\mixins\models\rating.py:32
+#: .\sage_tools\mixins\models\rating.py:36
+msgid "Rating must be between 1 and 5 in half-point increments."
+msgstr ""
+
+#: .\build\lib\sage_tools\validators\numeral.py:9
+#: .\sage_tools\validators\numeral.py:9
+msgid ""
+"Ensure your rating is in half-point increments within the range of 1 to 5."
+msgstr ""
+
+#: .\sage_tools\validators\string.py:11
+msgid ""
+"Enter a valid name. The name can only contain letters, spaces, hyphens, and "
+"apostrophes. Examples: John Doe, Mary-Jane O'Connor."
+msgstr ""
