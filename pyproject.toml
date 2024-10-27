@@ -11,9 +11,9 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<4.0"
+python = ">=3.9,<4.0"
 django = [
-    { version = ">=4.2,<5.0", python = ">=3.8,<3.10"}, 
+    { version = ">=4.2,<5.0", python = ">=3.9,<3.10"}, 
     { version = ">=4.2,<5.3", python = ">=3.10" }  # Django 4.2 and 5.x for Python 3.10+
 ]
 mimesis = "^11.1.0"
@@ -171,10 +171,11 @@ skip = [
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.1.3"
+version = "0.3.5"
+tag_format = "v$version"
 
 [tool.commitizen.settings]
-increment_types = ["feat", "fix"]
+increment_types = [ "feat", "fix" ]
 
 [tool.pylint]
 disable = [
