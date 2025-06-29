@@ -87,7 +87,7 @@ types-requests = "^2.32.0"
 
 # Documentation
 sphinx = "^7.1.2"
-sphinx-rtd-theme = "^2.0.0"
+sphinx-rtd-theme = ">=2,<4"
 sphinx-autodoc-typehints = { version = "^2.2.0", python = ">=3.9" }
 
 # Version management and releases
@@ -100,7 +100,7 @@ optional = true
 
 [tool.poetry.group.docs.dependencies]
 sphinx = "^7.1.2"
-sphinx-rtd-theme = "^2.0.0"
+sphinx-rtd-theme = ">=2,<4"
 sphinx-autodoc-typehints = { version = "^2.2.0", python = ">=3.9" }
 myst-parser = "^3.0.0"
 
