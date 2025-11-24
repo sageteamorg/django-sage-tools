@@ -28,7 +28,7 @@ jobs:
             django-version: "5.1"
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
@@ -86,7 +86,7 @@ jobs:
   security:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     
     - name: Run Bandit Security Lint
       uses: jpetrucciani/bandit-check@main
@@ -99,7 +99,7 @@ jobs:
     if: github.event_name == 'release' && github.event.action == 'published'
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     
     - name: Set up Python
       uses: actions/setup-python@v4
